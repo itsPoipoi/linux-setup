@@ -228,8 +228,6 @@ patgit() {
 
 # Clone Git repo & setup zshrc symlink
 pullgit() {
-	git config --global user.name "itsPoipoi"
-	git config --global user.mail "poipoigit@gmail.com"
 	git config --global pull.rebase false
 	if [ ! -d ~/linux-setup/ ]; then
 		git clone https://github.com/itsPoipoi/linux-setup.git
@@ -242,6 +240,8 @@ pullgit() {
 
 # Push .zshrc to Git repo
 pushgit() {
+	git config --global user.name "itsPoipoi"
+	git config --global user.mail "poipoigit@gmail.com"
 	git -C ~/linux-setup add .zshrc
 	git -C ~/linux-setup commit -m "..."
 	git -C ~/linux-setup push origin main
