@@ -73,8 +73,6 @@ zstyle ':fzf-tab:complete:z:*' fzf-preview 'eza -1 --group-directories-first --i
 zstyle ':fzf-tab:complete:zz:*' fzf-preview 'eza -aD1 --group-directories-first --icons --color=always $realpath'
 zstyle ':fzf-tab:complete:zza:*' fzf-preview 'eza -a1 --group-directories-first --icons --color=always $realpath'
 zstyle ':fzf-tab:complete:zze:*' fzf-preview 'eza -alh --group-directories-first --icons --color=always $realpath'
-# switch group using `<` and `>`
-# zstyle ':fzf-tab:*' switch-group '<' '>'
 
 # Shell integrations
 eval "$(fzf --zsh)"
