@@ -230,10 +230,10 @@ pullgit() {
 	if [ ! -d ~/linux-setup/ ]; then
 		git clone https://github.com/itsPoipoi/linux-setup.git
 	else 
-		git -C ~/linux-setup pull --autostash origin main
+		git -C ~/linux-setup pull --rebase origin main
 	fi
 	\rm -f ~/.zshrc
-	ln -s linux-setup/.zshrc .zshrc
+	ln -s linux-setup/.zshrc ~/.zshrc
 }
 
 # Push .zshrc to Git repo
