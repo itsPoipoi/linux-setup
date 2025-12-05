@@ -83,8 +83,8 @@ eval "$(zoxide init zsh)"
 #######################################################
 
 # Editor's
-export EDITOR=kwrite
-export VISUAL=kwrite
+export EDITOR=nvim
+export VISUAL=nvim
 
 # Fastfetch on Startup
 if [ -f /usr/bin/fastfetch ]; then
@@ -305,7 +305,7 @@ zze ()
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Edit this .zshrc file
-alias ezrc='kate ~/.zshrc'
+alias ezrc='nvim ~/.zshrc'
 
 # Change directory aliases
 alias cd..='cd ..'
@@ -391,5 +391,4 @@ alias wrbt="sudo grub-reboot 1 && reboot"
 alias bios="sudo grub-reboot 2 && reboot"
 alias ff="fastfetch"
 alias zi="__zoxide_zi"
-alias kate="kwrite"
 alias reload="source ~/.zshrc"
