@@ -385,7 +385,6 @@ alias vis='nvim "+set si"'
 alias curl="curl -#"
 
 # Personal Alias's
-alias cdc="ssh -p 5657 steam@51.254.96.147"
 alias sht="sudo shutdown -P now"
 alias rbt="sudo shutdown -r now"
 alias wrbt="sudo grub-reboot 1 && reboot"
