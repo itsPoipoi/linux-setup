@@ -5,6 +5,7 @@ YELLOW=$'\e[0;33m'
 NC=$'\e[0m'
 # Install Nala for all following installs
 sudo apt-get install nala -y
+sudo add-apt-repository ppa:neovim-ppa/unstable -y
 sudo nala upgrade -y
 # Install zsh in case it's not already installed
 sudo nala install zsh -y
@@ -21,8 +22,8 @@ fi
 # Import .zshrc
 curl -sL https://raw.githubusercontent.com/itsPoipoi/linux-setup/main/.zshrc -o ~/.zshrc
 echo "${YELLOW}.zshrc imported.${NC}"
-# Install git, trash, neovim, batcat, unzip, fontconfig
-sudo nala install git trash-cli neovim bat unzip fontconfig -y
+# Install git, trash, neovim, batcat, unzip, fontconfig, etc
+sudo nala install git trash-cli neovim bat unzip fontconfig make gcc ripgrep xclip -y
 # Install Nerd Font
 if [ ! -f ~/.local/share/fonts/FiraCodeNerdFont-Medium.ttf ]; then
 	echo "${GREEN}Installing FiraCode Nerd Font...${NC}"
