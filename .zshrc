@@ -50,6 +50,15 @@ bindkey "\e[1;5D" backward-word
 bindkey "\e[3;5~" kill-word
 bindkey -s "^f" "zi\n"
 
+if [[ -n $DISPLAY ]]; then
+    copy_line_to_x_clipboard() {
+        echo -n $BUFFER | xclip -selection clipboard
+        zle reset-prompt
+    }
+    zle -N copy_line_to_x_clipboard
+    bindkey '^Y' copy_line_to_x_clipboard
+fi
+
 # History
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
@@ -123,8 +132,8 @@ ftext() {
 	# -r recursive search
 	# -n causes line number to be printed
 	# optional: -F treat search term as a literal, not a regular expression
-	# optional: -l only print filenames and not the matching lines ex. grep -irl "$1" *
-	grep -iIHrn --color=always "$1" . | less -r
+	# optional: -l only print filenames and not the matching lines ex. rg -irl "$1" *
+	rg -iIHrn --color=always "$1" . | less -r
 }
 
 # Copy file with a progress bar
@@ -197,10 +206,10 @@ function whatsmyip ()
 	# Internal IP Lookup.
 	if [ -e /sbin/ip ]; then
 		echo -n "Internal IP: "
-		/sbin/ip addr show wlan0 | grep "inet " | awk -F: '{print $1}' | awk '{print $2}'
+		/sbin/ip addr show wlan0 | rg "inet " | awk -F: '{print $1}' | awk '{print $2}'
 	else
 		echo -n "Internal IP: "
-		/sbin/ifconfig wlan0 | grep "inet " | awk -F: '{print $1} |' | awk '{print $2}'
+		/sbin/ifconfig wlan0 | rg "inet " | awk -F: '{print $1} |' | awk '{print $2}'
 	fi
 
 	# External IP Lookup
@@ -341,14 +350,14 @@ alias treed="eza -TaD --icons"										# Tree directories all the way, use -L t
 alias treedmin="eza -TaD --icons -L 2"								# Tree directories into 1 subfolder level							# Tree directories into 1 subfolder level
 
 # Search command line history
-alias h="history | grep "
+alias h="history | rg "
 
 # Search running processes
-alias p="ps aux | grep "
+alias p="ps aux | rg "
 alias topcpu="/bin/ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10"
 
 # Search files in the current folder
-alias f="find . | grep "
+alias f="find . | rg "
 
 # Count all files (recursively) in the current folder
 alias countfiles="for t in files links directories; do echo \`find . -type \${t:0:1} | wc -l\` \$t; done 2> /dev/null"
@@ -371,6 +380,7 @@ alias unbz2='tar -xvjf'
 alias ungz='tar -xvzf'
 
 # Alias's to modified commands
+alias grep="rg"
 alias cat="batcat"
 alias cp='cp -i'
 alias mv='mv -i'
