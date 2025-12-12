@@ -127,13 +127,9 @@ extract() {
 # Searches for text in all files in the current folder
 ftext() {
 	# -i case-insensitive
-	# -I ignore binary files
 	# -H causes filename to be printed
-	# -r recursive search
 	# -n causes line number to be printed
-	# optional: -F treat search term as a literal, not a regular expression
-	# optional: -l only print filenames and not the matching lines ex. rg -irl "$1" *
-	rg -iIHrn --color=always "$1" . | less -r
+	rg -iHn --color=always "$1" . | less -r
 }
 
 # Copy file with a progress bar
