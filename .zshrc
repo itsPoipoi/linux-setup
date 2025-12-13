@@ -262,18 +262,7 @@ nala () {
 	fi
 }
 
-
-# Automatically do an ls for directories after each zoxide
-zza ()
-{
-	if [ -n "$1" ]; then
-		__zoxide_z "$@" && eza -a --icons
-	else
-		__zoxide_z ~ && eza -a --icons
-	fi
-}
-
-# Automatically do an ls for directories after each zoxide
+# Automatically do an ls after each zoxide: Only directories
 zz ()
 {
 	if [ -n "$1" ]; then
@@ -283,7 +272,17 @@ zz ()
 	fi
 }
 
-# Automatically do an ls after each zoxide
+# Automatically do an ls after each zoxide: All files
+zza ()
+{
+	if [ -n "$1" ]; then
+		__zoxide_z "$@" && eza -a --icons
+	else
+		__zoxide_z ~ && eza -a --icons
+	fi
+}
+
+# Automatically do an ls after each zoxide: All files as list
 zze ()
 {
 	if [ -n "$1" ]; then
