@@ -1,3 +1,7 @@
+# Color
+GREEN=$'\e[0;32m'
+RED=$'\e[0;31m'
+
 # Install Kanata using Brew
 brew install kanata
 
@@ -33,7 +37,7 @@ case $user_input in
     sudo shutdown -r now
     ;;
   [nN])
-    echo "${GREEN}Kanata will be active after next reboot.
+    echo "${GREEN}Kanata will be active after next reboot."
     ;;
   *)
     echo "Invalid choice."
