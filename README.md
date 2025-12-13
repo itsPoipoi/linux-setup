@@ -14,4 +14,6 @@ fastfetch --gen-config
 curl -sL https://raw.githubusercontent.com/itsPoipoi/linux-setup/main/config.jsonc -o ~/fastfetch/config.jsonc
 ```
 TO DO :
-- NeoVim
+- NeoVim Conf
+- Kanata Easy Install & Conf
+- Rofi Easy Install & Conf
