@@ -25,6 +25,8 @@ zinit light Aloxaf/fzf-tab
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
+zinit light MichaelAquilina/zsh-you-should-use
+zinit light fdellwing/zsh-bat
 
 # Add in snippets
 zinit snippet OMZP::git
