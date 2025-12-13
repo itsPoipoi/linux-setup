@@ -13,9 +13,12 @@ Import Fastfetch Config only (included in setup):
 fastfetch --gen-config
 curl -sL https://raw.githubusercontent.com/itsPoipoi/linux-setup/main/config.jsonc -o ~/fastfetch/config.jsonc
 ```
+Install Kanata & import config:
+```sh
+/bin/bash -c "$(curl -sSfL https://raw.githubusercontent.com/itsPoipoi/linux-setup/refs/heads/main/kanata/kanata-setup.sh)"
+```
 TO DO :
 - Rework repo structure
 - Expand setup script / independent scripts
 - NeoVim Conf
-- Kanata Easy Install & Conf
 - Rofi Easy Install & Conf
