@@ -1,0 +1,18 @@
+;; Caps to escape/control configuration for Kanata
+
+(defsrc
+  caps
+)
+
+(defalias
+  escctrl (tap-hold 150 150 esc lctl)
+)
+
+(defcfg
+  process-unmapped-keys no
+  linux-x11-repeat-delay-rate 250,35
+)
+
+(deflayer base
+  @escctrl
+)
