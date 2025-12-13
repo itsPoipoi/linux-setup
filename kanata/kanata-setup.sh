@@ -22,3 +22,20 @@ systemctl --user daemon-reload
 systemctl --user enable kanata.service
 systemctl --user start kanata.service
 
+echo "${GREEN}Kanata setup complete. A reboot is required. ${RED}Reboot now?"
+echo "${RED}(Y)es, (N)o:"
+read -n 1 -r user_input  # -n 1 reads a single character, -r treats backslashes literally
+echo 
+case $user_input in
+  [yY])
+    echo "${GREEN}Rebooting in a few seconds..."
+    sleep 4
+    sudo shutdown -r now
+    ;;
+  [nN])
+    echo "${GREEN}Kanata will be active after next reboot.
+    ;;
+  *)
+    echo "Invalid choice."
+    ;;
+esac
