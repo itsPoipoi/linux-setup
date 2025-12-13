@@ -17,8 +17,12 @@ Install Kanata & import config:
 ```sh
 /bin/bash -c "$(curl -sSfL https://raw.githubusercontent.com/itsPoipoi/linux-setup/refs/heads/main/kanata/kanata-setup.sh)"
 ```
+Install Rofi & import config:
+```sh
+/bin/bash -c "$(curl -sSfL https://raw.githubusercontent.com/itsPoipoi/linux-setup/refs/heads/main/rofi/rofi-setup.sh)"
+```
+
 TO DO :
 - Rework repo structure
 - Expand setup script / independent scripts
 - NeoVim Conf
-- Rofi Easy Install & Conf
