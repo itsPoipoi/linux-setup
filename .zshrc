@@ -43,14 +43,15 @@ zinit cdreplay -q
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Keybindings
-# bindkey -e
+set -o vi
 bindkey "^[p" history-search-backward
 bindkey "^[n" history-search-forward
 bindkey "^[w" kill-region
-bindkey "\e[1;5C" forward-word
-bindkey "\e[1;5D" backward-word
+# bindkey "\e[1;5C" forward-word
+# bindkey "\e[1;5D" backward-word
 bindkey "\e[3;5~" kill-word
 bindkey -s "^f" "zi\n"
+
 
 if [[ -n $DISPLAY ]]; then
     copy_line_to_x_clipboard() {
