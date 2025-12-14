@@ -218,9 +218,9 @@ function whatsmyip ()
 
 # Pull this zshrc from Github
 pullrc() {
-	echo "Pulling .zshrc from Github"
-	curl -#L https://raw.githubusercontent.com/itsPoipoi/linux-setup/main/.zshrc -o ~/.zshrc
-	echo "RC ready to reload!"
+	echo "${GREEN}Pulling .zshrc from Github"
+	curl -L https://raw.githubusercontent.com/itsPoipoi/linux-setup/main/.zshrc -o ~/.zshrc
+	echo "${YELLOW}RC ready to reload!"
 }
 
 # Setup Git PAT
