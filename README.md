@@ -1,6 +1,7 @@
 # Linux files I want archived for quick linux setup / backup.
 
-Full Install (standalone sh script including every option, Requires curl):
+## Full Install (standalone sh script including every option, Requires curl):
+
 ```sh
 /bin/bash -c "$(curl -sSfL https://raw.githubusercontent.com/itsPoipoi/linux-setup/main/setup.sh)"
 ```
