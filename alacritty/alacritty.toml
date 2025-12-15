@@ -1,0 +1,33 @@
+[window]
+decorations = "None"
+dimensions = { columns = 211, lines = 57 }
+opacity = 0.92
+dynamic_padding = true
+padding = { x = 2, y = 4 }
+# position = { x = 0, y = 100 }
+startup_mode = "Maximized"
+[font]
+normal = { family = "FiraCode Nerd Font", style = "regular" }
+size = 12
+[colors.primary]
+background = "#000000"
+[colors.normal]
+black = "#2E3436"
+red = "#CC0000"
+green = "#4E9A06"
+yellow = "#C4A000"
+blue = "#3465A4"
+magenta = "#75507B"
+cyan = "#06989A"
+white = "#D3D7CF"
+[cursor]
+style = { shape = "Beam", blinking = "Always" }
+vi_mode_style = { shape = "Block", blinking = "Always" }
+blink_timeout = 0
+blink_interval = 1000
+
+[keyboard]
+bindings = [
+{ key = "N", mods = "Control|Shift", action = "SpawnNewInstance" },
+{ key = "Q", mods = "Control|Shift", action = "Quit" },
+]
