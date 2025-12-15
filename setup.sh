@@ -62,6 +62,12 @@ if [ ! -f /home/linuxbrew/.linuxbrew/bin/eza ]; then
   else echo "${YELLOW}Eza is already installed. Skipping.${NC}"
 fi
 
+# Install treesitter
+if [ ! -f /home/linuxbrew/.linuxbrew/bin/tree-sitter ]; then
+  brew install -q tree-sitter-cli
+  else echo "${YELLOW}Treesitter is already installed. Skipping.${NC}"
+fi
+
 # Install zoxide
 if [ ! -f ~/.local/bin/zoxide ]; then
   /bin/bash -c "$(curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh)"
