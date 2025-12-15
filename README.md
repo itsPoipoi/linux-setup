@@ -21,6 +21,10 @@ Install Rofi & import config:
 ```sh
 /bin/bash -c "$(curl -sSfL https://raw.githubusercontent.com/itsPoipoi/linux-setup/refs/heads/main/rofi/rofi-setup.sh)"
 ```
+Install Alacritty & import config:
+```sh
+/bin/bash -c "$(curl -sSfL https://raw.githubusercontent.com/itsPoipoi/linux-setup/refs/heads/main/alacritty/setup.sh)"
+```
 
 TO DO :
 - Rework repo structure
