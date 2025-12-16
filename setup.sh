@@ -33,8 +33,7 @@ sudo nala install git trash-cli neovim bat unzip fontconfig make gcc ripgrep xcl
 # Install Nerd Font
 if [ ! -f ~/.local/share/fonts/FiraCodeNerdFont-Medium.ttf ]; then
 	echo "${GREEN}Installing FiraCode Nerd Font...${NC}"
-	mkdir -p ~/.local/share/fonts/
-	curl -#L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip -o ~/.local/share/fonts/FiraCode.zip
+	curl -sL https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip --create-dirs -o ~/.local/share/fonts/FiraCode.zip
 	unzip -oq ~/.local/share/fonts/FiraCode.zip  -d ~/.local/share/fonts/
 	\rm ~/.local/share/fonts/FiraCode.zip
 	fc-cache -f ~/.local/share/fonts/
