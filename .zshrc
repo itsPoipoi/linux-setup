@@ -381,6 +381,7 @@ alias wrbt="sudo grub-reboot 1 && reboot"
 alias bios="sudo grub-reboot 2 && reboot"
 alias ff="fastfetch"
 alias zi="__zoxide_zi"
+alias nupg="sudo nala upgrade"
 alias ezrc='nvim ~/.zshrc'
 alias evrc='nvim ~/.config/nvim/init.lua'
 alias src="source ~/.zshrc"
