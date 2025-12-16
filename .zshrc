@@ -230,35 +230,12 @@ pullrc() {
 	echo "${YELLOW}RC ready to reload!"
 }
 
-# Setup Git PAT
-patgit() {
-	GREEN=$'\e[0;32m'
-	read "PAT? ${GREEN}Input Personal Access Token :"
-	git -C ~/linux-setup remote set-url origin https://$(echo $PAT)@github.com/itsPoipoi/linux-setup
-	clear
-	echo "${GREEN}Terminal cleared for security reasons."
-}
-
-# Clone Git repo & setup zshrc symlink
-pullgit() {
-	git config --global pull.rebase false
-	if [ ! -d ~/linux-setup/ ]; then
-		git clone https://github.com/itsPoipoi/linux-setup.git
-	else 
-		git -C ~/linux-setup pull --rebase origin main
-	fi
-	\rm -f ~/.zshrc
-	ln -s linux-setup/.zshrc ~/.zshrc
-}
-
-# Push .zshrc to Git repo
-pushgit() {
+# Quick git config
+gitconfig() {
 	git config --global user.name "itsPoipoi"
-	git config --global user.mail "poipoigit@gmail.com"
-	git -C ~/linux-setup add .zshrc
-	git -C ~/linux-setup commit -m "..."
-	git -C ~/linux-setup push origin main
+	git config --global user.email "poipoigit@gmail.com"
 }
+alias gconf="gitconfig"
 
 # Run .zshrc setup script from Git
 alias psetup='/bin/bash -c "$(curl -sSfL https://raw.githubusercontent.com/itsPoipoi/linux-setup/main/setup.sh)"'
