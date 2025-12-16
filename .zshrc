@@ -138,7 +138,8 @@ ftext() {
 	# -i case-insensitive
 	# -H causes filename to be printed
 	# -n causes line number to be printed
-	rg -iHn --color=always "$1" . | less -r
+	# add rg args as $2; '-.' for hidden files
+	rg -iHn $2 --color=always "$1" . | less -r
 }
 
 # Copy file with a progress bar
