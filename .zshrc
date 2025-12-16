@@ -234,6 +234,7 @@ pullrc() {
 gitconfig() {
 	git config --global user.name "itsPoipoi"
 	git config --global user.email "poipoigit@gmail.com"
+	echo "${YELLOW}GitHub name & email are now set globally."
 }
 alias gconf="gitconfig"
 
