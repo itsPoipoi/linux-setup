@@ -140,7 +140,7 @@ ftext() {
 	# -n causes line number to be printed
 	# add rg args as $2+
 	# -. for hidden files
-	# --
+	# --max-depth 1 for non-recursive
 	rg -iHn $2 $3 $4 $5 --color=always "$1" . | less -r
 }
 
