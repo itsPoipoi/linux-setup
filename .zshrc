@@ -372,8 +372,6 @@ alias ping='ping -c 10'
 alias less='less -R'
 alias apt-get='sudo apt-get'
 alias vi='nvim'
-alias svi='sudo nvim'
-alias vis='nvim "+set si"'
 alias curl="curl -#"
 
 # Personal Alias's
