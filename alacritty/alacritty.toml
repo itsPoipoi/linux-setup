@@ -4,7 +4,6 @@ dimensions = { columns = 211, lines = 57 }
 opacity = 0.92
 dynamic_padding = true
 padding = { x = 2, y = 4 }
-# position = { x = 0, y = 100 }
 startup_mode = "Fullscreen"
 [font]
 normal = { family = "FiraCode Nerd Font", style = "regular" }
