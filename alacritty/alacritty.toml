@@ -28,6 +28,6 @@ blink_interval = 1000
 
 [keyboard]
 bindings = [
-{ key = "N", mods = "Control|Shift", action = "SpawnNewInstance" },
-{ key = "Q", mods = "Control|Shift", action = "Quit" },
+{ key = "D", mods = "Control", mode = "~Search|~Vi|~Alt", action = "ScrollHalfPageDown" },
+{ key = "U", mods = "Control", mode = "~Search|~Vi|~Alt", action = "ScrollHalfPageUp" },
 ]
