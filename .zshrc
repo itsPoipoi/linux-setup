@@ -33,6 +33,7 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light MichaelAquilina/zsh-you-should-use
 zinit light fdellwing/zsh-bat
+zinit light jeffreytse/zsh-vi-mode
 
 # Add in snippets
 zinit snippet OMZP::git
