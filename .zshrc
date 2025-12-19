@@ -26,14 +26,17 @@ source "${ZINIT_HOME}/zinit.zsh"
 # Add in Powerlevel10k
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 
-# Add in zsh plugins
-zinit light Aloxaf/fzf-tab
-zinit light zdharma-continuum/fast-syntax-highlighting
+# Load completions
 zinit light zsh-users/zsh-completions
+autoload -Uz compinit && compinit
+
+# Add in zsh plugins
+zinit light jeffreytse/zsh-vi-mode
+zinit light Aloxaf/fzf-tab
 zinit light zsh-users/zsh-autosuggestions
+zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light MichaelAquilina/zsh-you-should-use
 zinit light fdellwing/zsh-bat
-zinit light jeffreytse/zsh-vi-mode
 
 # Add in snippets
 zinit snippet OMZP::git
@@ -41,33 +44,29 @@ zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found
 zinit snippet OMZP::colored-man-pages
 
-# Load completions
-autoload -Uz compinit && compinit
-
 zinit cdreplay -q
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Keybindings
+set -o ignoreeof
 set -o vi
-bindkey "^[p" history-search-backward
-bindkey "^[n" history-search-forward
-bindkey "^[w" kill-region
-# bindkey "\e[1;5C" forward-word
-# bindkey "\e[1;5D" backward-word
-bindkey "\e[3;5~" kill-word
-bindkey -s "^f" "zi\n"
+function lazykeys {
+    bindkey -M viins "^W" forward-word
+    bindkey -M viins "^B" backward-kill-word
+    bindkey '^[[Z' autosuggest-accept # shift-tab
+    bindkey -s '^F' 'zi\n'
+}
+zvm_after_init_commands+=(lazykeys)
+# zvm_after_lazy_keybindings_commands=(lazykeys)
 
+ZVM_SYSTEM_CLIPBOARD_ENABLED=true
 
-if [[ -n $DISPLAY ]]; then
-    copy_line_to_x_clipboard() {
-        echo -n $BUFFER | xclip -selection clipboard
-        zle reset-prompt
-    }
-    zle -N copy_line_to_x_clipboard
-    bindkey '^Y' copy_line_to_x_clipboard
-fi
+# Fastfetch on clear
+function ffclear { clear; fastfetch; zle redisplay; }
+zle -N ffclear
+bindkey '^L' ffclear
 
 # History
 HISTSIZE=5000
@@ -87,15 +86,22 @@ setopt notify
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
+zstyle ':completion:*:git-checkout:*' sort false
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --group-directories-first --icons --color=always $realpath'
 zstyle ':fzf-tab:complete:z:*' fzf-preview 'eza -1 --group-directories-first --icons --color=always $realpath'
 zstyle ':fzf-tab:complete:zz:*' fzf-preview 'eza -aD1 --group-directories-first --icons --color=always $realpath'
 zstyle ':fzf-tab:complete:zza:*' fzf-preview 'eza -a1 --group-directories-first --icons --color=always $realpath'
 zstyle ':fzf-tab:complete:zze:*' fzf-preview 'eza -alh --group-directories-first --icons --color=always $realpath'
+zstyle ':fzf-tab:*' switch-group '<' '>'
+zstyle ':fzf-tab:*' fzf-bindings 'ctrl-y:accept' 'ctrl-w:accept'
 
 # Shell integrations
-eval "$(fzf --zsh)"
-eval "$(zoxide init zsh)"
+# The plugin will auto execute this zvm_after_init function
+function zvm_after_init() {
+    eval "$(fzf --zsh)"
+    eval "$(zoxide init zsh)"
+}
+zvm_after_init_commands+=(zvm_after_init)
 
 #######################################################
 # SPECIAL FUNCTIONS
