@@ -83,8 +83,7 @@ fi
 
 # Import Fastfetch config
 if [ ! -f ~/.config/fastfetch/config.jsonc ]; then
-	fastfetch --gen-config ~/.config/fastfetch/config.jsonc
-	curl -sL https://raw.githubusercontent.com/itsPoipoi/linux-setup/main/config.jsonc -o ~/.config/fastfetch/config.jsonc
+	curl -sL https://raw.githubusercontent.com/itsPoipoi/linux-setup/main/config.jsonc --create-dirs -o ~/.config/fastfetch/config.jsonc
 else
 	echo "${GREEN}Fastfetch config already exists. Overwrite it?${NC} "
 	select yn in "Yes" "No"; do
