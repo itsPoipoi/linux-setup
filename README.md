@@ -12,7 +12,7 @@ curl -sL https://raw.githubusercontent.com/itsPoipoi/linux-setup/main/.zshrc -o 
 Import Fastfetch config:
 ```sh
 fastfetch --gen-config
-curl -sL https://raw.githubusercontent.com/itsPoipoi/linux-setup/main/config.jsonc -o ~/fastfetch/config.jsonc
+curl -sL https://raw.githubusercontent.com/itsPoipoi/linux-setup/main/config.jsonc -o ~/.config/fastfetch/config.jsonc
 ```
 Install Kanata & import config:
 ```sh
